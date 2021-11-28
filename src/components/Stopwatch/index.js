@@ -16,7 +16,13 @@ class Stopwatch extends Component {
   }
 
   startCounter = () => {
-    this.timerId = setInterval(this.tick, 1000)
+    if (!this.timerId) {
+      this.timerId = setInterval(this.tick, 1000)
+    } else {
+      this.clearTheInterval()
+      this.resetCounter()
+      this.timerId = setInterval(this.tick, 1000)
+    }
   }
 
   tick = () => {

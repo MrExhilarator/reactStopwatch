@@ -18,9 +18,6 @@ class Stopwatch extends Component {
   startCounter = () => {
     const {secondsElapsed} = this.state
     if (!this.timerId || (this.timerId && secondsElapsed !== 0)) {
-      this.setState(previousState => ({
-        secondsElapsed: previousState.secondsElapsed + 1,
-      }))
       this.timerId = setInterval(this.tick, 1000)
     } else {
       this.clearTheInterval()
